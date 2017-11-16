@@ -1,0 +1,20 @@
+{
+  "name": "ttt1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "http-server -p 8000"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.5.9",
+    "angular-ui-bootstrap": "^2.5.6",
+    "angular-ui-router": "^0.4.3",
+    "bootstrap": "^3.3.7",
+    "http-server": "^0.10.0",
+    "jquery": "^3.2.1"
+  }
+}
