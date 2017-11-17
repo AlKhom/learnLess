@@ -1,0 +1,394 @@
+//.myclass{
+//  @media screen {
+//    color: grey;
+//    @media (min-width: 1024px){
+//      color: aquamarine;
+//    }
+//  }
+//}
+
+//@fontSize: 10px;
+//.myclass {
+//  font-size: @fontSize * 2;
+//  color:green;
+//}
+//@color: #FF8000;
+//@height: 16px;
+//.mycolor{
+//  color: @color;
+//  font-size: @height*3;
+//}
+
+//.class1{
+//  .class2{
+//    .val(@param){
+//      font-size: @param;
+//      color: gold;
+//    }
+//  }
+//}
+//.myclass{
+//  .class1> .class2> .val(60px)
+//}
+
+//@var: @a;
+//@a: 15px;
+//
+//.myclass {
+//  font-size: @var;
+//  @a:20px;
+//  color: green;
+//}
+
+//@import "mifile.less";
+//@selec: .myclass2;
+////@import "http://www.tutorialspoint.com/less/myfile.less";
+//@{selec} {
+//  color: #FF0000;
+//}
+
+//.myclass {
+//  @col: #ca428b;
+//  @color: "col";
+//  background-color: @@color;
+//}
+
+//.style:extend(h2, p){
+//  background-color: palevioletred;
+//}
+//h2{
+//  font-style: italic;
+//}
+//p{
+//  font-size: 35px;
+//}
+
+//.container,
+//.style {
+//  &:extend(.img);
+//  color:red
+//}
+//
+//.img{
+//  font-style: italic;
+//  background-color: #7B68EE;
+//}
+
+//.style.nav,
+//.nav h3 {
+//  color: orange;
+//}
+//
+//.nav {
+//  &:hover {
+//    color: green;
+//  }
+//}
+//.container:extend(.nav all) {}
+
+//h2 {
+//  &:extend(.style);
+//  font-style: italic;
+//}
+//
+//.style {
+//  background: green;
+//}
+//
+//
+//h1:extend(.style1) {
+//   font-style: italic;
+//}
+//
+//.style1 {
+//  background: green;
+//}
+
+//@media screen {
+//  .style {
+//    width:500px;
+//  }
+//  @media (min-width: 1023px) {
+//    .style {
+//      width:500px;
+//    }
+//  }
+//}
+//.cont:extend(.style) {}
+
+//.p1 {
+//  color:red;
+//}
+//
+//.p2 {
+//  background : #64d9c0;
+//  .p1();
+//}
+//
+//.p3 {
+//  background : olive;
+//  .p1;
+//}
+
+//.bord(@wid; @style; @color){
+//  border: @wid @style @color
+//}
+//.p2{.bord(2px; dashed; green)}
+//
+//.mixin(@color) {
+//  color: @color;
+//}
+//
+//.mixin(@color; @padding: 2) {
+//  color: @color;
+//  padding: @padding;
+//}
+//
+//.myclass {
+//  .mixin(#FE9A2E);
+//}
+
+//.mixin(@color: black; @fontSize: 10px; @backgroundcolor: red) {
+//  color: @color;
+//  font-size: @fontSize;
+//  background-color: @backgroundcolor;
+//}
+//
+//.class1 {
+//  .mixin(@fontSize: 20px; @color: #F5A9D0);
+//}
+//
+//.class2 {
+//  .mixin(#F79F81; 20px);
+//}
+////  !!!!
+//.class2 {
+//  .mixin(green;20px; @color:#F79F81);
+//}
+
+//.mixin(@color:red; @bgc:blue){
+//  color: @color;
+//  background-color:@bgc;
+//}
+//.myclass{
+//  .mixin(@color:gold)
+//}
+//.mixinPattern(schema1; @bgc ){
+//  background-color: @bgc;
+//  color: #000;
+//}
+//.mixinPattern(schema2; @bgc ){
+//  background-color: @bgc;
+//  color: white;
+//}
+//.mixinPattern(schema3; @bgc ){
+//  background-color: @bgc;
+//  color: green;
+//}
+//@schema: schema3;
+//.myclass{
+//  .mixinPattern(@schema; @bgc: red)
+//}
+
+//.padding(@x, @y) {
+//  @padding: ((@x + @y) / 2);
+//  @paddingR: ((@x + @y) * 2);
+//}
+//.myclass{
+//  .padding(80px, 120px);  // call to the mixin
+//  padding-left: @padding; //  returns the value
+//  padding-right: @paddingR; //  returns the value
+//}
+
+//.outerMixin(@value) {
+//  .nestedMixin() {
+//    font-size: @value;
+//  }
+//}
+//.myclass {
+//  .outerMixin(30);
+//  .nestedMixin();
+//}
+
+//@detached-ruleset: {
+//  .mixin() {
+//    font-family: "Comic Sans MS";
+//    background-color: #AA86EE;
+//  }
+//};
+//.cont {
+//  @detached-ruleset();
+//  .mixin();
+//}
+
+//.mixin(@a) when( @a = 20px){
+//  background-color: green;
+//}
+//.mixin(@a) when( @a = 30px){
+//  background-color: orange;
+//}
+//.mixin(@a) when( @a = 40px){
+//  background-color: red;
+//}
+//
+//.mixin(@a){
+//  font-size: @a;
+//}
+//.myclass{
+//  .mixin(40px)
+//}
+
+//.mixin(@a;@b) when(@a<20px){
+//  background-color: green;
+//}
+//.mixin(@a;@b) when(@a>=20px) and (@a < 30px) and (@b=50px){
+//  background-color: yellow;
+//}
+//.mixin(@a; @b) when(@a>=20px) and not (@b=50px){
+//  background-color: orange;
+//}
+//.mixin(@a; @b){
+//  font-size: @a;
+//}
+//.myclass{
+//  .mixin(10px; 50px)
+//}
+
+//.mixin (@a; @b) when (iscolor(@b)){
+//  color:blue;
+//  font-size: @a;
+//}
+////.mixin (@a;@b) {
+////  font-size: @a;
+////}
+//.myclass { .mixin(20px; grey) }
+
+//.cont(@a) when (@a>0){
+//  .cont(@a - 1);
+//  width: (15px*@a);
+//}
+//div{
+//  .cont(6)
+//}
+//.mixin() {
+//  transform+_: scale(1);
+//}
+//.class {
+//  .mixin();
+//  transform+_: rotate(2deg);
+//}
+//.myfunc() {
+//  box-shadow+_: 5px 5px 5px grey;
+//}
+//.class {
+//  .myfunc();
+//  box-shadow+_: 0 0 5px #f78181;
+//}
+
+//a {
+//  color: #5882FA;
+//  &:hover {
+//    background-color: #FF8000;
+//  }
+//}
+
+//.select {
+//  & + & {
+//    color: red;
+//  }
+//  & & {
+//    color: #D0FA58;
+//  }
+//  && {
+//    color: blue;
+//  }
+//  &, &_class1 {
+//    color: #A4A4A4;
+//  }
+//}
+
+//.header {
+//  .menu {
+//    border-radius: 5px;
+//    border: 1px solid red;
+//    & {
+//      padding-left: 200px;
+//    }
+//  }
+//}
+//
+//p, div {
+//  color : red;
+//  font-family:"Times New Roman";
+//  & + & {
+//    color : green;
+//    background-color: yellow;
+//    font-family: "Comic Sans MS";
+//  }
+//}
+
+//body{
+//  background-image:url("../flower3.jpg");
+//  image-size:image-size("../flower3.jpg");
+//}
+
+//.mixin(1)                   {a: 5}
+//.mixin(2)                   {b: 10}
+//.mixin(3)                   {c: 15}
+//.mixin(@a) when (default()) {d: @a}
+//
+//div {
+//  .mixin(12);
+//}
+//
+//div.style {
+//  .mixin(3);
+//}
+
+
+//.myclass1 {
+//  height:100px;
+//  width:100px;
+//  padding: 30px 0px 0px 25px;
+//  background-color: hsl(80, 90%, 20%);
+//  color:white;
+//}
+//
+//.myclass2 {
+//  height:100px;
+//  width:100px;
+//  padding: 30px 0px 0px 25px;
+//  background-color: saturate(hsl(80, 90%, 20%), 10%);
+//  color:white;
+//}
+//.myclass3 {
+//  height:100px;
+//  width:100px;
+//  padding: 30px 0px 0px 25px;
+//  background-color: darken(hsl(80, 90%, 20%), 10%);
+//  color:white;
+//}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
